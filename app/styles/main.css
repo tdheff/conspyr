@@ -60,8 +60,26 @@ body {
   }
 }
 
+.books {
+}
+
+.book {
+  padding-bottom: 1.7em;
+}
+
 .book-cover {
   max-height: 8em;
   max-width: 8em;
+}
+
+.book-title {
+  font-size: 3em;
+  font-family:"Times New Roman",Georgia,Serif;
+  font-weight: bold;
+}
+
+.author {
+  font-family:"Times New Roman",Georgia,Serif;
+  font-style: italic;
 }
 
