@@ -1,12 +1,15 @@
 <div class="header">
   <ul class="nav nav-pills pull-right">
-    <li><input type="search" class="form-control" role="search" placeholder="search..." /></li>
+    <li><input type="search" class="form-control"
+      role="search" placeholder="search..."
+      ng-model="searchText"/></li>
   </ul>
   <h3 class="text-muted">BookClub</h3>
 </div>
 
 <div class="books container">
-  <div class="book row" ng-repeat="(bkid, book) in books">
+  <!-- orderByPriority lets us do the filter; ignore it otherwise -->
+  <div class="book row" ng-repeat="book in books | orderByPriority | filter:searchText">
     <div class="col-xs-4 col-sm-4 text-right">
       <img class="book-cover" ng-src="{{book.cover}}" />
     </div>
@@ -17,7 +20,7 @@
       <div class="book-options">
         <!-- delete button -->
         <button type="button" class="btn btn-danger btn-sm"
-          ng-click="books.$remove(bkid)">
+          ng-click="books.$remove(book.$id)">
           <span class="glyphicon glyphicon-trash"></span> Remove
         </button>
 
@@ -33,13 +36,13 @@
 
         <!-- favorite button -->
         <button type="button" class="btn btn-default btn-sm"
-          ng-hide="book_is_favorite(bkid)"
-          ng-click="book_set_favorite(bkid, true)">
+          ng-hide="book_is_favorite(book.$id)"
+          ng-click="book_set_favorite(book.$id, true)">
           <span class="glyphicon glyphicon-star-empty"></span> Favorite
         </button>
         <button type="button" class="btn btn-success btn-sm"
-          ng-show="book_is_favorite(bkid)"
-          ng-click="book_set_favorite(bkid, false)">
+          ng-show="book_is_favorite(book.$id)"
+          ng-click="book_set_favorite(book.$id, false)">
           <span class="glyphicon glyphicon-star"></span> Unfavorite
         </button>
       </div>
