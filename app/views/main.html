@@ -46,6 +46,25 @@
           <span class="glyphicon glyphicon-star"></span> Unfavorite
         </button>
       </div>
+
+      <div class="comments" ng-show="show_comments">
+        <p class="comment" ng-repeat="comment in book.comments|orderBy:'time'">
+          {{comment.content}}
+        </p>
+        <form class="form-inline" role="form">
+          <div class="form-group">
+            <textarea type="text"
+              class="form-control"
+              ng-model="your_comment"
+              placeholder="Any thoughts on {{book.title}}?" />
+          </div>
+          <input
+            type="submit" class="btn btn-primary"
+            value="Add comment"
+            ng-disabled="!your_comment"
+            ng-click="addComment(your_comment, book)" />
+        </form>
+      </div>
     </div>
   </div>
 

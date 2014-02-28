@@ -26,7 +26,8 @@ angular.module('bookClubApp')
     	$scope.books.$add({
     		title: title,
     		author: author,
-    		cover: cover
+    		cover: cover,
+    		comments: {}
     	})
 
     	$scope.newbook_title = '';
