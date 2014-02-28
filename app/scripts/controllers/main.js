@@ -6,9 +6,9 @@ angular.module('bookClubApp')
 
     $scope.addBook = function() {
     	$scope.books.$add({
-    		title: $scope.newbook_title,
-    		author: $scope.newbook_author,
-    		cover: $scope.newbook_cover,
+    		title: $scope.newbook_title.trim(),
+    		author: $scope.newbook_author.trim(),
+    		cover: $scope.newbook_cover.trim(),
     	})
 
     	$scope.newbook_title = '';
