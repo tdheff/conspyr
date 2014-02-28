@@ -1,10 +1,6 @@
 <div class="header">
   <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
-    <li ng-cloak ng-show-auth="login" ng-controller="LoginController"><a href="#" ng-click="logout()">Log Out</a></li>
-    <li ng-cloak ng-show-auth="['logout','error']"><a href="#/login">Log In</a></li>
+    <li><input type="search" class="form-control" role="search" /></li>
   </ul>
   <h3 class="text-muted">BookClub</h3>
 </div>
@@ -17,8 +13,37 @@
     <div class="col-xs-8 col-sm-8">
       <div class="book-title">{{book.title}}</div>
       <div class="author">by {{book.author}}</div>
+
+      <div class="book-options">
+        <!-- delete button -->
+        <button type="button" class="btn btn-danger btn-sm"
+          ng-click="">
+          <span class="glyphicon glyphicon-trash"></span> Remove
+        </button>
+
+        <!-- toggle comments button -->
+        <button type="button" class="btn btn-default btn-sm"
+          ng-hide="show_comments" ng-click="show_comments=true">
+          <span class="glyphicon glyphicon-comment"></span> Show Comments
+        </button>
+        <button type="button" class="btn btn-default btn-sm"
+          ng-show="show_comments" ng-click="show_comments=false">
+          <span class="glyphicon glyphicon-comment"></span> Hide Comments
+        </button>
+
+        <!-- favorite button -->
+        <button type="button" class="btn btn-default btn-sm"
+          ng-hide="favorite" ng-click="favorite=true">
+          <span class="glyphicon glyphicon-star-empty"></span> Favorite
+        </button>
+        <button type="button" class="btn btn-success btn-sm"
+          ng-show="favorite" ng-click="favorite=false">
+          <span class="glyphicon glyphicon-star"></span> Unfavorite
+        </button>
+      </div>
     </div>
   </div>
+
   <div class="row text-center">
     <form class="form-inline" role="form">
       <div class="form-group">
