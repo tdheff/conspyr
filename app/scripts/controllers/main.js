@@ -45,4 +45,12 @@ angular.module('bookClubApp')
     	localStorage[bkid + "-is-favorite"] = is_favorite;
     }
 
+    $scope.addComment = function(comment, book) {
+    	var comments = new Firebase(FBURL + '/books/' + book.$id + '/comments');
+    	comments.push({
+    		content: comment,
+    		time: new Date().getTime()
+    	});
+    }
+
   });
