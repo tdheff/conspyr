@@ -26,11 +26,11 @@
 
         <!-- toggle comments button -->
         <button type="button" class="btn btn-default btn-sm"
-          ng-hide="show_comments" ng-click="show_comments=true">
+          ng-hide="show_comments[book.$id]" ng-click="show_comments[book.$id]=true">
           <span class="glyphicon glyphicon-comment"></span> Show Comments
         </button>
         <button type="button" class="btn btn-default btn-sm"
-          ng-show="show_comments" ng-click="show_comments=false">
+          ng-show="show_comments[book.$id]" ng-click="show_comments[book.$id]=false">
           <span class="glyphicon glyphicon-comment"></span> Hide Comments
         </button>
 
@@ -47,7 +47,7 @@
         </button>
       </div>
 
-      <div class="comments" ng-show="show_comments">
+      <div class="comments" ng-show="show_comments[book.$id]">
         <p class="comment" ng-repeat="comment in book.comments|orderBy:'-time'">
           {{comment.content}}
         </p>
