@@ -34,4 +34,14 @@ angular.module('bookClubApp')
     	$scope.newbook_cover = '';
     };
 
+    // This should really be persisted per-user in firebase
+    // but whatever
+    $scope.book_is_favorite = function(bkid) {
+    	return localStorage[bkid + "-is-favorite"];
+    }
+
+    $scope.book_set_favorite = function(bkid, is_favorite) {
+    	localStorage[bkid + "-is-favorite"] = is_favorite;
+    }
+
   });

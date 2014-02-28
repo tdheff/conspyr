@@ -33,11 +33,13 @@
 
         <!-- favorite button -->
         <button type="button" class="btn btn-default btn-sm"
-          ng-hide="favorite" ng-click="favorite=true">
+          ng-hide="book_is_favorite(bkid)"
+          ng-click="book_set_favorite(bkid, true)">
           <span class="glyphicon glyphicon-star-empty"></span> Favorite
         </button>
         <button type="button" class="btn btn-success btn-sm"
-          ng-show="favorite" ng-click="favorite=false">
+          ng-show="book_is_favorite(bkid)"
+          ng-click="book_set_favorite(bkid, false)">
           <span class="glyphicon glyphicon-star"></span> Unfavorite
         </button>
       </div>
