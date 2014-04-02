@@ -14,4 +14,4 @@ angular.module('bookClubApp')
   .constant('loginProviders', 'password')
 
   // your Firebase URL goes here
-  .constant('FBURL', 'https://jareds179bookclub.firebaseio.com');
+  .constant('FBURL', 'https://conspyr.firebaseio.com');
