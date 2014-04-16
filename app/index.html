@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Conspyr</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -14,9 +14,13 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
+    <!-- fonts -->
+    <link href="http://fonts.googleapis.com/css?family=Lobster:400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,300,400italic,400,600italic,600,700italic,700,800italic,800" rel="stylesheet" type="text/css">
+    <!-- endfonts -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/conspyr.css">
     <!-- endbuild -->
   </head>
   <body ng-app="bookClubApp">
@@ -24,8 +28,31 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
+
+    <!-- Begin page content -->
+    <div class="container">
+      <a href="/#/"><div class="back glyphicon glyphicon-chevron-left"></div></a>
+
+      <div class="page-header">
+        <h1 class="logo">Conspyr</h1>
+        <div class="today-selector">
+          <div class="glyphicon glyphicon-chevron-left"></div>
+          <h4>Today</h4>
+          <div class="glyphicon glyphicon-chevron-right"></div>
+        </div>
+      </div>
+    </div>
+
     <div class="container" ng-view=""></div>
+
+    <div id="footer">
+      <div class="container toolbar">
+        <a href="#/new/"><div class="glyphicon glyphicon-plus"></div></a>
+        <a href="#/search/"><div class="glyphicon glyphicon-search"></div></a>
+        <a href="#/myplans/"><div class="glyphicon glyphicon-list-alt"></div></a>
+      </div>
+    </div>
+    <!-- Add your site or application content here -->
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -51,6 +78,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/filters/filters.js"></script>
     <script src="scripts/angularfire/config.js"></script>
     <script src="scripts/services/firebase.js"></script>
     <script src="scripts/services/login.js"></script>

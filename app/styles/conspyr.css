@@ -1,0 +1,138 @@
+/* Sticky footer styles
+    -------------------------------------------------- */
+    html {
+      position: relative;
+      min-height: 100%;
+    }
+    body {
+      /* Margin bottom by footer height */
+      margin-bottom: 60px;
+      font-family: "Open Sans", sans-serif;
+    }
+    #footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      /* Set the fixed height of the footer here */
+      height: 60px;
+      background-color: #FFF;
+    }
+
+    .page-header {
+      margin: 0;
+    }
+
+    .back {
+      float: left;
+      margin-top: 40px;
+    }
+
+
+    /* Custom page CSS
+    -------------------------------------------------- */
+    /* Not required for template or sticky footer method. */
+
+    .container {
+      width: auto;
+      max-width: 680px;
+      padding: 0 15px;
+    }
+
+    .container .text-muted {
+      margin: 20px 0;
+    }
+
+    .logo {
+      text-align: center;
+      font-family: 'Lobster', sans-serif;
+    }
+
+    .today-selector {
+      text-align: center;
+    }
+
+    .today-selector h4 {
+      display: inline;
+    }
+
+    .time {
+      color: #111;
+    }
+
+    .events {
+      color: #333;
+      padding-top: 0.3em;
+    }
+
+    .events:before {
+      height:1px;
+      background:#333;
+      width:90%;
+      display:block;
+      content:"";
+      margin:6px auto;
+    }
+
+    .events:first-child:before {
+      height: 0px;
+    }
+
+    .events table {
+      margin-bottom: 0;
+    }
+
+
+    .events tr:first-child td {
+      border-top: none;
+    }
+
+    .events .people {
+      text-transform: uppercase;
+      color: #999;
+      text-align: right;
+    }
+
+    .owned {
+      font-weight: bold;
+    }
+
+    .toolbar {
+      text-align: center;
+    }
+
+    .toolbar .glyphicon {
+      font-size: 30px;
+      margin-top: 12px;
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+
+    .form-row {
+      margin-top: 30px;
+    }
+
+    input {
+      border: 1px solid #999;
+      border-radius: 3px;
+      padding: 3px;
+      width: 65%;
+      float: right;
+      background: none;
+    }
+
+    .add-label {
+      margin-right: 10px;
+      color: #999;
+      width: 100%;
+      text-align: right;
+    }
+
+    button {
+      background: #eee;
+      border: 1px solid #999;
+      border-radius: 3px;
+    }
+
+    a {
+      color: #333;
+    }
