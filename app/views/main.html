@@ -6,7 +6,7 @@
     <table class="table">
       <tr ng-repeat="plan in timeslot.plans">
         <td>{{plan.description}}</td>
-        <td class="people">{{plan.people.join(', ')}}</td>
+        <td class="people">{{plan.people[0]}}</td>
       </tr>
     </table>
   </div>
