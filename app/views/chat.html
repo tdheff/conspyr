@@ -2,6 +2,12 @@
   class="row events">
   <div class="time col-xs-2"></div>
   <div class="col-xs-12">
+    <div class="chat-people" >
+      <div class="chat-person" ng-repeat="person in people">
+        {{person}}<span ng-if="!$last">,</span>&nbsp;
+      </div>
+      <a ng-href="#/{{addfriends}}">+ add friends</a>
+    </div>
     <div class="chat-window">
       <div ng-repeat="message in chat">
         <div>

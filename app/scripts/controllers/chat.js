@@ -16,14 +16,23 @@ angular.module('bookClubApp')
       var date = dateString(new Date());
     }
 
-		var ref = new Firebase(FBURL
+		var chatRef = new Firebase(FBURL
       + '/plans/'
       + date
       + '/'
       + $routeParams['plan']
       + '/chat');
-    console.log(ref);
-		$scope.chat = $firebase(ref);
+		$scope.chat = $firebase(chatRef);
+
+    var peopleRef = new Firebase(FBURL
+      + '/plans/'
+      + date
+      + '/'
+      + $routeParams['plan']
+      + '/people');
+    $scope.people = $firebase(peopleRef)
+
+    $scope.addfriends = date + '/' + $routeParams['plan'] + '/addfriends';
 
     $scope.addMessage = function(e) {
       console.log(e);

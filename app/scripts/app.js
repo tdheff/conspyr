@@ -14,10 +14,6 @@ angular.module('bookClubApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/:date', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
       .when('/:plan/chat', {
         templateUrl: 'views/chat.html',
         controller: 'ChatCtrl'
@@ -28,14 +24,18 @@ angular.module('bookClubApp', [
 			})
       .when('/new', {
         templateUrl: 'views/newplan.html',
-        controller: 'MainCtrl'
+        controller: 'NewCtrl'
       })
       .when('/myplans/', {
         templateUrl: 'views/myplans.html',
         controller: 'MainCtrl'
       })
-      .when('/addfriends/', {
+      .when('/:date/:plan/addfriends', {
         templateUrl: 'views/addfriends.html',
+        controller: 'AddFriendsCtrl'
+      })
+      .when('/:date', {
+        templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
       .otherwise({

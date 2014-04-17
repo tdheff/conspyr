@@ -124,7 +124,7 @@
       margin-top: 30px;
     }
 
-    input {
+    .form-row input {
       border: 1px solid #999;
       border-radius: 3px;
       padding: 3px;
@@ -169,4 +169,22 @@
       width: 80%;
       margin-bottom: 5px;
       margin-right: 5px;
+    }
+
+    .chat-person {
+      display: inline-block;
+    }
+
+    .adduser {
+      padding: 5px;
+      border-bottom: solid 1px #999;
+    }
+
+    .adduser div{
+      display: inline-block;
+    }
+
+    .adduser-check {
+      float: right;
+      background: #fff;
     }

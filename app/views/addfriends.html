@@ -1,28 +1,15 @@
 <div class="row events">
-  <div class="group col-xs-2">Besties</div>
-  <div class="col-xs-10">
-    <table class="table">
-      <tr><td>Tommy</td><td class="people"><input type="checkbox"></input></td></tr>
-      <tr><td>Jared</td><td class="people"><input type="checkbox"></input></td></tr>
-      <tr><td>Sarah</td><td class="people"><input type="checkbox"></input></td></tr>
-      <tr><td>Alex</td><td class="people"><input type="checkbox"></input></td></tr>
-    </table>
-  </div>
-</div>
+  <div class="group col-xs-6 col-xs-offset-3">
+    <button style='width: 100%; margin-top: 5px; margin-bottom: 5px;' ng-click='addFriends()'>add</button> 
 
-<div class="row events">
-  <div class="group col-xs-2">Friends</div>
-  <div class="col-xs-10">
-    <table class="table">
-      <tr><td>Zach</td><td class="people"><input type="checkbox"></input></td></tr>
-      <tr><td>Cody</td><td class="people"><input type="checkbox"></input></td></tr>
-      <tr><td>Anne</td><td class="people"><input type="checkbox"></input></td></tr>
-      <tr><td>Katie</td><td class="people"><input type="checkbox"></input></td></tr>
-      <tr><td>Blair</td><td class="people"><input type="checkbox"></input></td></tr>
-      <tr><td>Chuck</td><td class="people"><input type="checkbox"></input></td></tr>
-      <tr><td>Serena</td><td class="people"><input type="checkbox"></input></td></tr>
-      <tr><td>Dan</td><td class="people"><input type="checkbox"></input></td></tr>
-      <tr><td>Nate</td><td class="people"><input type="checkbox"></input></td></tr>
-    </table>
+    <div class='adduser' ng-repeat="user in users">
+      <div class='adduser-name'>{{user.name}}</div>
+      <div class='adduser-check'>
+        <input type='checkbox'
+               name="selectedUsers[]"
+               value="{{user.name}}"
+               ng-model"user.selected>
+      </div>
+    </div>
   </div>
 </div>

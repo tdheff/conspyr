@@ -1,35 +1,49 @@
 <div class="row form-row">
   <div class="col-xs-8 col-xs-offset-2">
-    <span class="add-label">date</span><input></input>
+    <span class="add-label">date</span>
+    <input id='date-input' ng-model="date">
   </div>
 </div>
 
 <div class="row form-row">
   <div class="col-xs-8 col-xs-offset-2">
-    <span class="add-label">time</span><input></input>
+    <span class="add-label">time</span>
+    <input id='time-input' type="text" ng-model="time">
   </div>
 </div>
 
-<div class="row form-row">
+<!--<div class="row form-row">
   <div class="col-xs-8 col-xs-offset-2">
     <span class="add-label">location</span><input></input>
   </div>
-</div>
+</div> -->
 
 <div class="row form-row">
   <div class="col-xs-8 col-xs-offset-2">
-    <span class="add-label">description</span><input></input>
+    <span class="add-label">description</span><input ng-model="desc"></input>
   </div>
 </div>
 
 <div class="row form-row">
   <div class="col-xs-8 col-xs-offset-2">
-    <span class="add-label">anytime?</span><input type="checkbox"></input>
+    <span class="add-label">your name</span><input ng-model="name"></input>
   </div>
 </div>
 
 <div class="row form-row">
   <div class="col-xs-2 col-xs-offset-5">
-    <a href="/#/addfriends"><button type="submit">next</button></a>
+    <button ng-click="makePlan()">next</button>
   </div>
 </div>
+
+
+<script>
+$(document).ready(function() {
+  $('#date-input').datepicker({
+    "todayBtn": "linked",
+    "autoclose": true
+  });
+
+  //$('#time-input').timepicker();
+});
+</script>
