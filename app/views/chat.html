@@ -1,15 +1,20 @@
 <div
   class="row events">
   <div class="time col-xs-2"></div>
-  <div class="col-xs-10">
-    <table class="table">
-      <tr ng-repeat="message in chat">
-        <td>{{message.body}}</td>
-        <td class="people">{{message.sender}}</td>
-      </tr>
-    </table>
+  <div class="col-xs-12">
+    <div class="chat-window">
+      <div ng-repeat="message in chat">
+        <div>
+          <span class="chat-sender">{{message.sender}}:</span>
+          {{message.body}}
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<input type="text" ng-model="name" placeholder="Name">
-<input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message...">
+<div class="chat-inputs">
+  <input type="text" ng-model="name" placeholder="Name">
+  <input type="text" ng-model="msg" ng-keydown="addMessage($event)" placeholder="Message...">
+  <button ng-click="addMessage($event)">send</button>
+</div>

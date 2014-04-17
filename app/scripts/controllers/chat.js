@@ -10,7 +10,8 @@ angular.module('bookClubApp')
 		$scope.chat = $firebase(ref);
 
     $scope.addMessage = function(e) {
-      if (e.keyCode != 13) return;
+      console.log(e);
+      if (e.keyCode != 13 && e.type != "click") return;
       $scope.chat.$add({sender: $scope.name, body: $scope.msg});
       $scope.msg = "";
     }

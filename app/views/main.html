@@ -4,10 +4,14 @@
   <div class="time col-xs-2">{{timeslot.time}}</div>
   <div class="col-xs-10">
     <table class="table">
-      <tr ng-repeat="plan in timeslot.plans">
-        <td>{{plan.description}}</td>
-        <td class="people">{{plan.people[0]}}</td>
-      </tr>
+      <div ng-repeat="plan in timeslot.plans">
+        <a ng-href="{{plan.link}}">
+          <div class="plan-wrapper">
+            <div class="plan-name">{{plan.description}}</div>
+            <div class="people">{{plan.people[0]}}</div>
+          </div>
+        </a>
+      </div>
     </table>
   </div>
 </div>
