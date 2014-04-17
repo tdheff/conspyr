@@ -8,13 +8,21 @@ angular.module('bookClubApp', [
   'firebase',
   'angularfire.firebase',
 ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
- 			.when('/:plan/chat', {
+      .when('/:date', {
+        templateUrl: 'views/main.html',
+        controller: 'MainCtrl'
+      })
+      .when('/:plan/chat', {
+        templateUrl: 'views/chat.html',
+        controller: 'ChatCtrl'
+      })
+ 			.when('/:date/:plan/chat', {
 				templateUrl: 'views/chat.html',
 		    controller: 'ChatCtrl'
 			})
@@ -33,4 +41,6 @@ angular.module('bookClubApp', [
       .otherwise({
         redirectTo: '/'
       });
+
+    //$locationProvider.html5Mode(true);
   });
