@@ -15,7 +15,9 @@
     "angularfire": "~0.6.0",
     "firebase-simple-login": "~1.0.2",
     "bootstrap-datepicker": "*",
-    "bootstrap-timepicker": "*"
+    "bootstrap-timepicker": "*",
+    "momentjs": "~2.6.0",
+    "angular-moment": "~0.7.0"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",

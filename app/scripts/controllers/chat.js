@@ -7,7 +7,11 @@ angular.module('bookClubApp')
       var year = String(date.getFullYear());
       var month = String(date.getMonth());
       var date = String(date.getDate());
-      return year + month + date;
+      return year + '-'  + month + '-' + date;
+    }
+
+    function momDateString(date) {
+      return date.format("YYYY-M-D")
     }
 
     if ($routeParams.date) {

@@ -7,7 +7,11 @@ angular.module('bookClubApp')
       var year = String(date.getFullYear());
       var month = String(date.getMonth());
       var date = String(date.getDate());
-      return year + month + date;
+      return year + '-'  + month + '-' + date;
+    }
+
+    function momDateString(date) {
+      return date.format("YYYY-M-D")
     }
 
     function parseTime(timeStr, dt) {
@@ -34,7 +38,7 @@ angular.module('bookClubApp')
     }
 
     $scope.makePlan = function(e) {
-      var date = dateString(new Date($scope.date));
+      var date = momDateString(moment($scope.date,'MM/DD/YYYY'));
 
       var ref = new Firebase(FBURL
         + '/plans/'

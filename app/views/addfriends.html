@@ -5,10 +5,7 @@
     <div class='adduser' ng-repeat="user in users">
       <div class='adduser-name'>{{user.name}}</div>
       <div class='adduser-check'>
-        <input type='checkbox'
-               name="selectedUsers[]"
-               value="{{user.name}}"
-               ng-model"user.selected>
+        <input type="checkbox" name="selectedUsers[]" value="{{user.name}}" ng-model="user.selected">
       </div>
     </div>
   </div>

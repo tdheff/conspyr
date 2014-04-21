@@ -48,11 +48,14 @@
     }
 
     .today-selector {
+      margin-top: 10px;
+      margin-bottom: 5px;
       text-align: center;
     }
 
     .today-selector h4 {
-      display: inline;
+      width: 100px;
+      display: inline-block;
     }
 
     .time {

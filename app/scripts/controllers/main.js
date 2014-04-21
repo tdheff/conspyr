@@ -7,15 +7,53 @@ angular.module('bookClubApp')
       var year = String(date.getFullYear());
       var month = String(date.getMonth());
       var date = String(date.getDate());
-      return year + month + date;
+      return year + '-'  + month + '-' + date;
+    }
+
+    function momDateString(date) {
+      return date.format("YYYY-M-D")
     }
 
     if ($routeParams.date) {
-      var date = $routeParams.date;
+      console.log($routeParams.date);
+      var date = moment($routeParams.date,"YYYY-M-D");
+      $scope.nextDate = momDateString(date.add('days',1));
+      $scope.prevDate = momDateString(date.subtract('days',2));
+      date.add('days',1);
+
+      if ( moment().isSame(date,'day') ) {
+        $scope.date = "Today";
+      } else if ( moment().add('days',1).isSame(date,'day') ) {
+        $scope.date = "Tomorrow"
+      } else if ( moment().subtract('days',1).isSame(date,'day') ) {
+        $scope.date = "Yesterday"
+      }else {
+        $scope.date = date.format("M/D/YY");
+      }
     } else {
-      var date = dateString(new Date());
+      var date = moment();
+      $scope.nextDate = momDateString(moment().add('days',1));
+      $scope.prevDate = momDateString(moment().subtract('days',1));
+      $scope.date = "Today";
     }
-		var ref = new Firebase(FBURL + '/plans/' + date);
+
+    var dateStr = momDateString(date)
+		var ref = new Firebase(FBURL + '/plans/' + dateStr);
+    console.log(FBURL + '/plans/' + dateStr);
+
+    //$scope.empty = $firebase(ref).$getIndex();//.length == 0;
+    //console.log($scope.empty);
+
+    /*$scope.empty = (function (obj) {
+      var ret = true;
+
+      obj.$on('change', function (key) {
+        ret = obj.$getIndex().length == 0;
+        return ret;
+      }); 
+      return ret;
+    })($firebase(ref)); */
+    $scope.empty = true;
 
 		$scope.plans = (function (obj) {
       var ret = {};//new Array(24)
@@ -27,7 +65,8 @@ angular.module('bookClubApp')
           ret[time]["plans"].push(obj[key]);
         } else {
           ret[time] = {time: String(time) + ":00", plans: [obj[key]]}
-        }  
+        }
+        $scope.empty = false;
       })
 
       return ret;

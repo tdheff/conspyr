@@ -1,3 +1,17 @@
+<div class="today-selector">
+  <a ng-href="/#/{{prevDate}}">
+    <div class="glyphicon glyphicon-chevron-left"></div>
+  </a>
+  <h4>{{date}}</h4>
+  <a ng-href="/#/{{nextDate}}">
+    <div class="glyphicon glyphicon-chevron-right"></div>
+  </a>
+</div>
+
+<div ng-show="empty">
+  <div class="time col-xs-4 col-xs-offset-4" style="text-align: center;">No plans for today!</div>
+</div>
+
 <div
   class="row events"
   ng-repeat="timeslot in plans">
