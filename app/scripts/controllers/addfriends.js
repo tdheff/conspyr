@@ -15,10 +15,18 @@ angular.module('bookClubApp')
 
     // some jank because angularfire doesn't
     $scope.people = $scope.plan.$child('people');
-    $scope.people.$on('loaded', function(){
-      $scope.$watchCollection('people', function(){
+    $scope.people.$on('loaded', function() {
+      $scope.$watchCollection('people', function() {
         $scope.people.$save('');
       });
     });
+
+    $scope.submit = function() {
+      $location.path( '/'
+        + $routeParams.date
+        + '/' +
+        $routeParams.plan +
+        '/chat');
+    }
 
   });

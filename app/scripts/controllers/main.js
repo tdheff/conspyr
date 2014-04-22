@@ -57,6 +57,7 @@ angular.module('bookClubApp')
           plans: {key: plansRef[key]}
         };
       }
+      console.log($scope.plans);
     });
 
   });

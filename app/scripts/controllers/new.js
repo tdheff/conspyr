@@ -50,6 +50,7 @@ angular.module('bookClubApp')
 
       $scope.planRef = $firebase(ref);
       var time = parseTime($scope.time).getHours();
+      time = ("0" + time).slice(-2);
 
       var people = {};
       people[$scope.name] = true;
