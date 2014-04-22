@@ -17,4 +17,10 @@ angular.module('bookClubApp')
       $scope.plan.$child('chat').$add({sender: $scope.name, body: $scope.msg});
       $scope.msg = "";
     }
+
+    $scope.name = localStorage.username
+    $scope.$watch('name', function(){
+      localStorage.username = $scope.name;
+    });
+
   });
