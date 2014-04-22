@@ -3,28 +3,11 @@
 angular.module('bookClubApp')
   .controller('AddFriendsCtrl', function ($scope, filterFilter, $routeParams, $location, $firebase, FBURL) {
 
-    function dateString(date) {
-      var year = String(date.getFullYear());
-      var month = String(date.getMonth());
-      var date = String(date.getDate());
-      return year + '-'  + month + '-' + date;
-    }
-
-    function momDateString(date) {
-      return date.format("YYYY-M-D")
-    }
-
-    if ($routeParams.date) {
-      var date = $routeParams.date;
-    } else {
-      var date = momDateString(moment());
-    }
-
     $scope.plan = $firebase(new Firebase(FBURL
       +'/plans/'
-      +date
+      +$routeParams.date
       +'/'
-      +$routeParams['plan']));
+      +$routeParams.plan));
 
     $scope.users = [
       {name: 'Tommy', selected: false},

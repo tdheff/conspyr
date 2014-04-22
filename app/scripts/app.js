@@ -14,11 +14,7 @@ angular.module('bookClubApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/:plan/chat', {
-        templateUrl: 'views/chat.html',
-        controller: 'ChatCtrl'
-      })
- 			.when('/:date/:plan/chat', {
+      .when('/:date/:plan/chat', {
 				templateUrl: 'views/chat.html',
 		    controller: 'ChatCtrl'
 			})

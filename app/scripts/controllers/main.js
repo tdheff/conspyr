@@ -39,7 +39,6 @@ angular.module('bookClubApp')
 
     var dateStr = momDateString(date)
 		var ref = new Firebase(FBURL + '/plans/' + dateStr);
-    console.log(FBURL + '/plans/' + dateStr);
 
     //$scope.empty = $firebase(ref).$getIndex();//.length == 0;
     //console.log($scope.empty);
@@ -50,7 +49,7 @@ angular.module('bookClubApp')
       obj.$on('change', function (key) {
         ret = obj.$getIndex().length == 0;
         return ret;
-      }); 
+      });
       return ret;
     })($firebase(ref)); */
     $scope.empty = true;
@@ -70,7 +69,7 @@ angular.module('bookClubApp')
       })
 
       return ret;
-      
+
     })($firebase(ref));
 
   });
