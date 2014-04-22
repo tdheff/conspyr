@@ -14,6 +14,10 @@ angular.module('bookClubApp')
       return date.format("YYYY-M-D")
     }
 
+    function formatHour(hour) {
+      return moment().hour(hour).format('ha');
+    }
+
     if ($routeParams.date) {
       console.log($routeParams.date);
       var date = moment($routeParams.date,"YYYY-M-D");
@@ -63,7 +67,7 @@ angular.module('bookClubApp')
         if (ret[time]) {
           ret[time]["plans"].push(obj[key]);
         } else {
-          ret[time] = {time: String(time) + ":00", plans: [obj[key]]}
+          ret[time] = {time: formatHour(time), plans: [obj[key]]}
         }
         $scope.empty = false;
       })
