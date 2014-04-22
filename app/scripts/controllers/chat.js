@@ -19,6 +19,7 @@ angular.module('bookClubApp')
     } else {
       var date = momDateString(moment());
     }
+
     $scope.plan = $firebase(new Firebase(FBURL
       +'/plans/'
       +date
@@ -28,7 +29,6 @@ angular.module('bookClubApp')
     $scope.addfriends = date + '/' + $routeParams['plan'] + '/addfriends';
 
     $scope.addMessage = function(e) {
-      console.log(e);
       if (e.keyCode != 13 && e.type != "click") return;
       $scope.plan.$child('chat').$add({sender: $scope.name, body: $scope.msg});
       $scope.msg = "";
