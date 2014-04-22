@@ -35,16 +35,4 @@ angular.module('bookClubApp')
   });
 
 
-  })
-
-  .filter('trueKeys', function(){
-    return function(dict) {
-      var keys = [];
-      angular.forEach(dict, function(value, key){
-        if (value == true) {
-          keys.push(key);
-        }
-      });
-      return keys;
-    };
   });

@@ -72,14 +72,4 @@ angular.module('bookClubApp')
 
     })($firebase(ref));
 
-  })
-
-  .filter('nCSVs', function(){
-    return function(list, n) {
-      if (list.length > n) {
-        list = list.slice(0, n);
-        list.push('...');
-      }
-      return list.join(', ');
-  };
-});
+  });
