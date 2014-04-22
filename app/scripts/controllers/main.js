@@ -65,9 +65,9 @@ angular.module('bookClubApp')
         var time = obj[key]["time"];
         obj[key]["link"] = '/#/' + dateStr + '/' + key + '/chat'
         if (ret[time]) {
-          ret[time]["plans"].push(obj[key]);
+          ret[time].plans[key] = obj[key];
         } else {
-          ret[time] = {time: formatHour(time), plans: [obj[key]]}
+          ret[time] = {time: formatHour(time), plans: {key: obj[key]}}
         }
         $scope.empty = false;
       })
