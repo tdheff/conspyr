@@ -22,7 +22,7 @@
         <a ng-href="{{plan.link}}">
           <div class="plan-wrapper">
             <div class="plan-name">{{plan.description}}</div>
-            <div class="people">{{plan.people[0]}}</div>
+            <div class="people">{{plan.people|trueKeys|nCSVs:3}}</div>
           </div>
         </a>
       </div>
