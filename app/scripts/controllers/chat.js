@@ -19,32 +19,18 @@ angular.module('bookClubApp')
     } else {
       var date = momDateString(moment());
     }
-
-    console.log(date);
-
-		var chatRef = new Firebase(FBURL
-      + '/plans/'
-      + date
-      + '/'
-      + $routeParams['plan']
-      + '/chat');
-		$scope.chat = $firebase(chatRef);
-
-    var peopleRef = new Firebase(FBURL
-      + '/plans/'
-      + date
-      + '/'
-      + $routeParams['plan']
-      + '/people');
-    $scope.people = $firebase(peopleRef)
+    $scope.plan = $firebase(new Firebase(FBURL
+      +'/plans/'
+      +date
+      +'/'
+      +$routeParams['plan']));
 
     $scope.addfriends = date + '/' + $routeParams['plan'] + '/addfriends';
 
     $scope.addMessage = function(e) {
       console.log(e);
       if (e.keyCode != 13 && e.type != "click") return;
-      $scope.chat.$add({sender: $scope.name, body: $scope.msg});
+      $scope.plan.$child('chat').$add({sender: $scope.name, body: $scope.msg});
       $scope.msg = "";
     }
-
   });
