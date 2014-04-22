@@ -39,6 +39,8 @@ angular.module('bookClubApp')
       return dt;
     }
 
+    $scope.name = localStorage.username;
+
     $scope.makePlan = function(e) {
       var date = momDateString(moment($scope.date,'MM/DD/YYYY'));
 
@@ -49,7 +51,9 @@ angular.module('bookClubApp')
       $scope.planRef = $firebase(ref);
       var time = parseTime($scope.time).getHours();
 
-      $scope.planRef.$add({time: time, description: $scope.desc, people: [$scope.name]})
+      var people = {};
+      people[$scope.name] = true;
+      $scope.planRef.$add({time: time, description: $scope.desc, people: people})
       .then(function(ref) {
         $location.path( '/' + date + '/' + ref.name() + '/addfriends');
       })
