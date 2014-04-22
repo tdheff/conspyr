@@ -4,7 +4,7 @@
   <div class="col-xs-12">
     <h3>{{plan.description}}</h3>
     <div class="chat-people">
-      <div class="chat-person" ng-repeat="person in plan.people">
+      <div class="chat-person" ng-repeat="person in plan.people|trueKeys">
         {{person}}<span ng-if="!$last">,</span>&nbsp;
       </div>
       <a ng-href="#/{{addfriends}}">+ add friends</a>

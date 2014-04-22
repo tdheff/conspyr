@@ -1,11 +1,12 @@
 <div class="row events">
   <div class="group col-xs-6 col-xs-offset-3">
-    <button style='width: 100%; margin-top: 5px; margin-bottom: 5px;' ng-click='addFriends()'>add</button> 
-
     <div class='adduser' ng-repeat="user in users">
       <div class='adduser-name'>{{user.name}}</div>
       <div class='adduser-check'>
-        <input type="checkbox" name="selectedUsers[]" value="{{user.name}}" ng-model="user.selected">
+        <input
+          type="checkbox"
+          value="{{user.name}}"
+          ng-model="people[user.name]">
       </div>
     </div>
   </div>

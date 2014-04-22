@@ -7,8 +7,24 @@ angular.module('bookClubApp')
       var year = String(date.getFullYear());
       var month = String(date.getMonth());
       var date = String(date.getDate());
-      return year + month + date;
+      return year + '-'  + month + '-' + date;
     }
+
+    function momDateString(date) {
+      return date.format("YYYY-M-D")
+    }
+
+    if ($routeParams.date) {
+      var date = $routeParams.date;
+    } else {
+      var date = momDateString(moment());
+    }
+
+    $scope.plan = $firebase(new Firebase(FBURL
+      +'/plans/'
+      +date
+      +'/'
+      +$routeParams['plan']));
 
     $scope.users = [
       {name: 'Tommy', selected: false},
@@ -23,44 +39,26 @@ angular.module('bookClubApp')
       {name: 'Chuck', selected: false},
       {name: 'Serena', selected: false},
       {name: 'Dan', selected: false},
-      {name: 'Nate', selected: false}]
+      {name: 'Nate', selected: false}
+    ];
 
-    // borrowed from http://jsbin.com/ImAqUC/1
+  $scope.people = $scope.plan.$child('people');
+  $scope.people.$on('loaded', function(){
+    $scope.$watchCollection('people', function(){
+      $scope.people.$save('');
+    });
+  });
 
-    $scope.selectedUsers = function selectedUsers() {
-      return filterFilter($scope.users, {selected: true});
-    };
+  })
 
-    $scope.$watch('users|filter:{selected:true}', function (nv) {
-      $scope.selection = nv.map(function (fruit) {
-        return user.name;
+  .filter('trueKeys', function(){
+    return function(dict) {
+      var keys = [];
+      angular.forEach(dict, function(value, key){
+        if (value == true) {
+          keys.push(key);
+        }
       });
-    }, true);
-
-    console.log($scope.users);
-
-    $scope.addFriends = function(e) {
-      var date = dateString(new Date($scope.date));
-
-      var ref = new Firebase(FBURL
-        + '/plans/'
-        + date);
-      $scope.planRef = $firebase(ref);
-
-      var peopleRef = new Firebase(FBURL
-        + '/plans/'
-        + date
-        + '/'
-        + $routeParams['plan']
-        + '/people');
-      $scope.people = $firebase(peopleRef)
-
-
-      console.log($scope.users);
-      //$scope.planRef.$add({time: time, description: $scope.desc, people: [$scope.name]}).then(function(ref) {
-      //  $scope.$apply( $location.path( '/' + date + '/' + ref.name() + '/addfriends') );        
-      //})
-    
-    }
-
+      return keys;
+    };
   });
