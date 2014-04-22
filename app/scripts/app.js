@@ -15,28 +15,28 @@ angular.module('bookClubApp', [
         controller: 'MainCtrl'
       })
       .when('/:date/:plan/chat', {
-				templateUrl: 'views/chat.html',
+				templateUrl: '/views/chat.html',
 		    controller: 'ChatCtrl'
 			})
       .when('/new', {
-        templateUrl: 'views/newplan.html',
+        templateUrl: '/views/newplan.html',
         controller: 'NewCtrl'
       })
       .when('/myplans/', {
-        templateUrl: 'views/myplans.html',
+        templateUrl: '/views/myplans.html',
         controller: 'MainCtrl'
       })
       .when('/:date/:plan/addfriends', {
-        templateUrl: 'views/addfriends.html',
+        templateUrl: '/views/addfriends.html',
         controller: 'AddFriendsCtrl'
       })
       .when('/:date', {
-        templateUrl: 'views/main.html',
+        templateUrl: '/views/main.html',
         controller: 'MainCtrl'
       })
       .otherwise({
         redirectTo: '/'
       });
 
-    //$locationProvider.html5Mode(true);
+      $locationProvider.html5Mode(true);
   });
