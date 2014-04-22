@@ -11,28 +11,14 @@ angular.module('bookClubApp')
 
     $scope.back_loc = $routeParams.date + '/' + $routeParams.plan + '/chat';
 
-    $scope.users = [
-      {name: 'Tommy', selected: false},
-      {name: 'Jared', selected: false},
-      {name: 'Sarah', selected: false},
-      {name: 'Alex', selected: false},
-      {name: 'Zach', selected: false},
-      {name: 'Cody', selected: false},
-      {name: 'Anne', selected: false},
-      {name: 'Katie', selected: false},
-      {name: 'Blair', selected: false},
-      {name: 'Chuck', selected: false},
-      {name: 'Serena', selected: false},
-      {name: 'Dan', selected: false},
-      {name: 'Nate', selected: false}
-    ];
+    $scope.users = $firebase(new Firebase(FBURL+'/users/'));
 
-  $scope.people = $scope.plan.$child('people');
-  $scope.people.$on('loaded', function(){
-    $scope.$watchCollection('people', function(){
-      $scope.people.$save('');
+    // some jank because angularfire doesn't
+    $scope.people = $scope.plan.$child('people');
+    $scope.people.$on('loaded', function(){
+      $scope.$watchCollection('people', function(){
+        $scope.people.$save('');
+      });
     });
-  });
-
 
   });

@@ -14,6 +14,10 @@ angular.module('bookClubApp')
       return date.format("YYYY-M-D")
     }
 
+    function formatHour(hour) {
+      return moment().hour(hour).format('ha');
+    }
+
     if ($routeParams.date) {
       console.log($routeParams.date);
       var date = moment($routeParams.date,"YYYY-M-D");
@@ -37,39 +41,22 @@ angular.module('bookClubApp')
       $scope.date = "Today";
     }
 
-    var dateStr = momDateString(date)
-		var ref = new Firebase(FBURL + '/plans/' + dateStr);
+    var dateStr = momDateString(date);
+    var plansRef = $firebase(new Firebase(FBURL+'/plans/'+dateStr));
 
-    //$scope.empty = $firebase(ref).$getIndex();//.length == 0;
-    //console.log($scope.empty);
-
-    /*$scope.empty = (function (obj) {
-      var ret = true;
-
-      obj.$on('change', function (key) {
-        ret = obj.$getIndex().length == 0;
-        return ret;
-      });
-      return ret;
-    })($firebase(ref)); */
-    $scope.empty = true;
-
-		$scope.plans = (function (obj) {
-      var ret = {};//new Array(24)
-
-      obj.$on('change', function (key) {
-        var time = obj[key]["time"];
-        obj[key]["link"] = '/#/' + dateStr + '/' + key + '/chat'
-        if (ret[time]) {
-          ret[time]["plans"].push(obj[key]);
-        } else {
-          ret[time] = {time: String(time) + ":00", plans: [obj[key]]}
-        }
-        $scope.empty = false;
-      })
-
-      return ret;
-
-    })($firebase(ref));
+    // bucketize plans by hour
+		$scope.plans = {};
+    plansRef.$on('change', function (key) {
+      var time = plansRef[key].time;
+      plansRef[key].link = '/#/' + dateStr + '/' + key + '/chat'
+      if ($scope.plans[time]) {
+        $scope.plans[time].plans[key] = plansRef[key];
+      } else {
+        $scope.plans[time] = {
+          time: formatHour(time),
+          plans: {key: plansRef[key]}
+        };
+      }
+    });
 
   });
