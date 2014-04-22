@@ -9,6 +9,7 @@ angular.module('bookClubApp')
       +'/'
       +$routeParams.plan));
 
+    $scope.back_loc = '/';
     $scope.addfriends = $routeParams.date + '/' + $routeParams.plan + '/addfriends';
 
     $scope.addMessage = function(e) {

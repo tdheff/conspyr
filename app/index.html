@@ -33,17 +33,19 @@
 
 
     <!-- Begin page content -->
-    
-    <div id="head-wrapper">
-    <div class="container" id="head">
-      <a href="/#/"><div class="back glyphicon glyphicon-chevron-left"></div></a>
 
-      <div class="page-head">
-        <a href="/#/"><img src="/images/logowhite.png" height="60px"></a>  
+    <div id="head-wrapper" ng-controller="BackCtrl">
+      <div class="container" id="head">
+        <a class="back-button" ng-show="backloc()" ng-href="{{backloc()}}">
+          <div class="back glyphicon glyphicon-chevron-left"></div>
+        </a>
+
+        <div class="page-head">
+          <a href="/#/"><img src="/images/logowhite.png" height="60px"></a>
+        </div>
+
+        <a href="/#/new"><div class="add glyphicon glyphicon-plus"></div></a>
       </div>
-
-      <a href="/#/new"><div class="add glyphicon glyphicon-plus"></div></a>
-    </div>
     </div>
 
     <div class="container" ng-view=""></div>
@@ -86,6 +88,7 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/backbutton.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/chat.js"></script>
     <script src="scripts/controllers/new.js"></script>

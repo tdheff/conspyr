@@ -211,3 +211,8 @@ a {
   float: right;
   background: #fff;
 }
+
+.back-button.ng-hide {
+  display: inherit !important;
+  visibility: hidden;
+}

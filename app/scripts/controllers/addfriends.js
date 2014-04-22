@@ -9,6 +9,8 @@ angular.module('bookClubApp')
       +'/'
       +$routeParams.plan));
 
+    $scope.back_loc = $routeParams.date + '/' + $routeParams.plan + '/chat';
+
     $scope.users = [
       {name: 'Tommy', selected: false},
       {name: 'Jared', selected: false},
@@ -31,6 +33,7 @@ angular.module('bookClubApp')
       $scope.people.$save('');
     });
   });
+
 
   })
 

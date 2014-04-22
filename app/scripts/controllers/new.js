@@ -3,6 +3,8 @@
 angular.module('bookClubApp')
   .controller('NewCtrl', function ($scope, $routeParams, $location, $firebase, FBURL) {
 
+    $scope.back_loc = '/';
+
     function dateString(date) {
       var year = String(date.getFullYear());
       var month = String(date.getMonth());
@@ -48,9 +50,9 @@ angular.module('bookClubApp')
       var time = parseTime($scope.time).getHours();
 
       $scope.planRef.$add({time: time, description: $scope.desc, people: [$scope.name]}).then(function(ref) {
-        $scope.$apply( $location.path( '/' + date + '/' + ref.name() + '/addfriends') );        
+        $scope.$apply( $location.path( '/' + date + '/' + ref.name() + '/addfriends') );
       })
-    
+
     }
 
   });
