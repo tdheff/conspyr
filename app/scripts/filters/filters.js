@@ -20,4 +20,10 @@ angular.module('bookClubApp')
       });
       return keys;
     };
+  })
+
+  .filter('isEmpty', function(){
+    return function(obj) {
+    	return Object.keys(obj).length == 0;
+    };
   });
