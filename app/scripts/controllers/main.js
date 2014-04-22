@@ -60,7 +60,7 @@ angular.module('bookClubApp')
 
       obj.$on('change', function (key) {
         var time = obj[key]["time"];
-        obj[key]["link"] = '/#/' + key + '/chat'
+        obj[key]["link"] = '/#/' + dateStr + '/' + key + '/chat'
         if (ret[time]) {
           ret[time]["plans"].push(obj[key]);
         } else {

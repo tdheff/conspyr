@@ -17,8 +17,10 @@ angular.module('bookClubApp')
     if ($routeParams.date) {
       var date = $routeParams.date;
     } else {
-      var date = dateString(new Date());
+      var date = momDateString(moment());
     }
+
+    console.log(date);
 
 		var chatRef = new Firebase(FBURL
       + '/plans/'
