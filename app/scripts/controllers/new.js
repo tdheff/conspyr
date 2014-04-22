@@ -49,8 +49,9 @@ angular.module('bookClubApp')
       $scope.planRef = $firebase(ref);
       var time = parseTime($scope.time).getHours();
 
-      $scope.planRef.$add({time: time, description: $scope.desc, people: [$scope.name]}).then(function(ref) {
-        $scope.$apply( $location.path( '/' + date + '/' + ref.name() + '/addfriends') );
+      $scope.planRef.$add({time: time, description: $scope.desc, people: [$scope.name]})
+      .then(function(ref) {
+        $location.path( '/' + date + '/' + ref.name() + '/addfriends');
       })
 
     }
