@@ -16,6 +16,9 @@ angular.module('bookClubApp')
       return date.format("YYYY-M-D")
     }
 
+
+    // TAKEN FROM http://www.timlabonne.com/2013/07/parsing-a-time-string-with-javascript/
+    // COULDN'T FIND A LIBRARY THAT DID THIS
     function parseTime(timeStr, dt) {
       if (!dt) {
         dt = new Date();
@@ -39,7 +42,6 @@ angular.module('bookClubApp')
       return dt;
     }
 
-    $scope.name = localStorage.username;
 
     $scope.makePlan = function(e) {
       var date = momDateString(moment($scope.date,'MM/DD/YYYY'));
@@ -53,7 +55,7 @@ angular.module('bookClubApp')
       time = ("0" + time).slice(-2);
 
       var people = {};
-      people[$scope.name] = true;
+      people[localStorage.name] = true;
       $scope.planRef.$add({time: time, description: $scope.desc, people: people})
       .then(function(ref) {
         $location.path( '/' + date + '/' + ref.name() + '/addfriends');
