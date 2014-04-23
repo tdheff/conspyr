@@ -15,6 +15,10 @@ h1, h2, h3, h4 {
   font-weight: 300;
 }
 
+a:hover {
+  color: #E84A5F;
+}
+
 #footer {
   position: fixed;
   bottom: 0;
@@ -154,10 +158,13 @@ h1, h2, h3, h4 {
 }
 
 .form-row input {
+  width: 60%;
+}
+
+input {
   border: 1px solid #999;
   border-radius: 3px;
   padding: 3px;
-  width: 65%;
   float: right;
   background: none;
 }
@@ -228,4 +235,12 @@ a {
   width: 100%;
   margin-top: 10px;
   margin-bottom: 8px;
+}
+
+.ng-hide div{
+  display: none;
+}
+
+#name-change {
+  width: 80%;
 }

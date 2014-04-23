@@ -44,6 +44,10 @@
           <div class="back glyphicon glyphicon-chevron-left"></div>
         </a>
 
+        <a class="back-button" ng-show="!backloc()" ng-href="/#/settings">
+          <div class="back glyphicon glyphicon-cog"></div>
+        </a>
+
         <div class="page-head">
           <a href="/#/"><img src="/images/logowhite.png" height="60px"></a>
         </div>
@@ -97,6 +101,7 @@
     <script src="scripts/controllers/chat.js"></script>
     <script src="scripts/controllers/new.js"></script>
     <script src="scripts/controllers/addfriends.js"></script>
+    <script src="scripts/controllers/settings.js"></script>
     <script src="scripts/filters/filters.js"></script>
     <script src="scripts/angularfire/config.js"></script>
     <script src="scripts/services/firebase.js"></script>

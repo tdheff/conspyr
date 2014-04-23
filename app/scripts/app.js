@@ -30,6 +30,10 @@ angular.module('bookClubApp', [
         templateUrl: 'views/addfriends.html',
         controller: 'AddFriendsCtrl'
       })
+      .when('/settings', {
+        templateUrl: 'views/settings.html',
+        controller: 'SettingsCtrl'
+      })
       .when('/:date', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
