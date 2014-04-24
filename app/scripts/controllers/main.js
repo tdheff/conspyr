@@ -47,14 +47,17 @@ angular.module('bookClubApp')
     // bucketize plans by hour
 		$scope.plans = {};
     plansRef.$on('change', function (key) {
+      console.log(key);
       var time = plansRef[key].time;
       plansRef[key].link = '/#/' + dateStr + '/' + key + '/chat'
       if ($scope.plans[time]) {
         $scope.plans[time].plans[key] = plansRef[key];
       } else {
+        var pl = {};
+        pl[key] = plansRef[key];
         $scope.plans[time] = {
           time: formatHour(time),
-          plans: {key: plansRef[key]}
+          plans: pl//{key: plansRef[key]}
         };
       }
       console.log($scope.plans);
