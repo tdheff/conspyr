@@ -51,9 +51,9 @@ angular.module('bookClubApp')
     // bucketize plans by hour
 		$scope.plans = {};
     plansRef.$on('change', function (key) {
-      console.log(key);
       var time = plansRef[key].time;
-      plansRef[key].link = '/#/' + dateStr + '/' + key + '/chat'
+      plansRef[key].link = '/#/' + dateStr + '/' + key + '/chat';
+      plansRef[key].full_evtid = {date: dateStr, id: key};
       if ($scope.plans[time]) {
         $scope.plans[time].plans[key] = plansRef[key];
       } else {
@@ -64,7 +64,14 @@ angular.module('bookClubApp')
           plans: pl//{key: plansRef[key]}
         };
       }
-      console.log($scope.plans);
     });
+
+    var me = $firebase(new Firebase(FBURL+'/users/'+localStorage.name));
+    $scope.isFresh = function(plan) {
+      if (plan.updated == undefined) return false;
+      var last_view = me[plan.full_evtid.date] && me[plan.full_evtid.date][plan.full_evtid.id];
+      if (last_view == undefined) return false;
+      return last_view < plan.updated;
+    }
 
   });
