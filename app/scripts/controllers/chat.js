@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bookClubApp')
-  .controller('ChatCtrl', function ($scope, $routeParams, $firebase, FBURL) {
+  .controller('ChatCtrl', function ($scope, $routeParams, $firebase, FBURL, $location) {
 
     $scope.plan = $firebase(new Firebase(FBURL
       +'/plans/'
@@ -24,4 +24,17 @@ angular.module('bookClubApp')
       localStorage.username = $scope.name;
     });
 
+    // update the last seen timestamp
+    var updateTimestamp = function() {
+      (new Firebase(FBURL+'/users/'+
+        localStorage.name+'/'+
+        $routeParams.date+'/'+$routeParams.plan
+      )).set(new Date().getTime());
+    };
+
+    var loc = $location.absUrl();
+    $scope.plan.$on("change", function(){
+      if (loc != $location.absUrl()) return;
+      updateTimestamp();
+    });
   });
