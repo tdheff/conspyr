@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bookClubApp')
-  .controller('MainCtrl', function ($scope, $routeParams, $firebase, FBURL) {
+  .controller('MainCtrl', function ($scope, $routeParams, $firebase, $location, FBURL) {
 
     function dateString(date) {
       var year = String(date.getFullYear());
@@ -16,6 +16,10 @@ angular.module('bookClubApp')
 
     function formatHour(hour) {
       return moment().hour(hour).format('ha');
+    }
+
+    if (!localStorage.name) {
+      $location.path('/settings');
     }
 
     if ($routeParams.date) {

@@ -17,6 +17,10 @@ angular.module('bookClubApp')
     }
 
 
+    if (!localStorage.name) {
+      $location.path('/settings');
+    }
+
     // TAKEN FROM http://www.timlabonne.com/2013/07/parsing-a-time-string-with-javascript/
     // COULDN'T FIND A LIBRARY THAT DID THIS
     function parseTime(timeStr, dt) {
