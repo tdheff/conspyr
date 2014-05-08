@@ -74,4 +74,11 @@ angular.module('bookClubApp')
       return last_view < plan.updated;
     }
 
+    $scope.isBrandNew = function(plan) {
+      if (plan.updated == undefined) return true;
+      var last_view = me[plan.full_evtid.date] && me[plan.full_evtid.date][plan.full_evtid.id];
+      if (last_view == undefined) return true;
+      return false;
+    }
+
   });

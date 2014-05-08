@@ -21,7 +21,9 @@
       <div ng-repeat="plan in timeslot.plans">
         <a ng-href="{{plan.link}}">
           <div class="plan-wrapper fresh-{{isFresh(plan)}}">
-            <div class="plan-name">{{plan.description}}</div>
+            <div class="plan-name">
+              <span class="brandnew" ng-show="isBrandNew(plan)">+</span>{{plan.description}}
+            </div>
             <div class="people">{{plan.people|trueKeys|nCSVs:3}}</div>
           </div>
         </a>
