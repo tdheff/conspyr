@@ -7,6 +7,8 @@ angular.module('bookClubApp')
 
     $scope.updateName = function() {
       localStorage.name = $scope.nameField;
+      var user = $firebase(new Firebase(FBURL+'/users/'+$scope.nameField));
+      user.$set({name: $scope.nameField});
     }
 
   });
