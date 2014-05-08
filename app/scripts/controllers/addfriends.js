@@ -12,6 +12,9 @@ angular.module('bookClubApp')
     $scope.back_loc = $routeParams.date + '/' + $routeParams.plan + '/chat';
 
     $scope.users = $firebase(new Firebase(FBURL+'/users/'));
+    $scope.users.$on('change', function(data) {
+      delete $scope.users['undefined'];
+    });
 
     // some jank because angularfire doesn't
     $scope.people = $scope.plan.$child('people');
