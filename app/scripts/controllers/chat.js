@@ -16,6 +16,7 @@ angular.module('bookClubApp')
     $scope.addMessage = function(e) {
       if (e.keyCode != 13 && e.type != "click") return;
       $scope.plan.$child('chat').$add({sender: localStorage.name, body: $scope.msg});
+      $scope.plan.$child('updated').$set(new Date().getTime());
       $scope.msg = "";
     }
 
