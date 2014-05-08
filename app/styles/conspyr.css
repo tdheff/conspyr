@@ -64,8 +64,13 @@ a:hover {
   text-align: center;
 }
 
+body {
+  height: 100%;
+}
+
 .container {
   width: auto;
+  height: 100%;
   max-width: 680px;
   padding: 0 15px;
 }
@@ -98,6 +103,7 @@ a:hover {
 .events {
   color: #333;
   padding-top: 0.3em;
+  height: 100%;
 }
 
 .events:before {
@@ -214,11 +220,15 @@ a {
 }
 
 .adduser {
-  padding: 5px;
+  padding: 5px 20px;
   border-bottom: solid 1px #999;
 }
 
-.adduser div{
+.adduser label {
+  width: 100%;
+}
+
+.adduser label div{
   display: inline-block;
 }
 
@@ -235,7 +245,12 @@ a {
 
 #add-friends-submit {
   width: 100%;
-  margin-top: 10px;
+  font-size: 1.5em;
+  font-weight: 700;
+  background: #00dfaa;
+  border-radius: 0px;
+  border-top: none;
+  color: #ffffff;
   margin-bottom: 8px;
 }
 

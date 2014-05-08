@@ -1,18 +1,31 @@
 <div class="row events">
 
-  <div class="col-xs-6 col-xs-offset-3">
-    <button ng-click="submit()" id="add-friends-submit">Submit</button>
-  </div>
-
-  <div class="group col-xs-6 col-xs-offset-3">
+  <div class="group col-xs-12" style="padding:0 0 0 0;">
     <div class='adduser' ng-repeat="user in users">
-      <div class='adduser-name'>{{user.name}}</div>
-      <div class='adduser-check'>
-        <input
-          type="checkbox"
-          value="{{user.name}}"
-          ng-model="people[user.name]">
-      </div>
+      <label>
+        <div class='adduser-name'>{{user.name}}</div>
+        <div class='adduser-check'>
+          <input
+            type="checkbox"
+            value="{{user.name}}"
+            ng-model="people[user.name]">
+        </div>
+      </label>
     </div>
   </div>
+
+  <button ng-click="submit()" id="add-friends-submit">Submit</button>
 </div>
+
+<script>
+
+/*$(document).ready(function () {
+  $('.events').on('click','.adduser', function () {
+    console.log('blah2');
+    $(this).children('.adduser-check').children('input').prop('checked', true);
+  });
+
+  console.log("blah");
+}); */
+
+</script>
